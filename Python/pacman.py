@@ -10,7 +10,7 @@ Exercises
 
 """
 import turtle
-import free games
+import freegames
 importa random
 from random import choice
 from turtle import *
