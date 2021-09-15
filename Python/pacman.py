@@ -9,7 +9,9 @@ Exercises
 5. Make the ghosts smarter.
 
 """
-
+import turtle
+import free games
+importa random
 from random import choice
 from turtle import *
 from freegames import floor, vector
