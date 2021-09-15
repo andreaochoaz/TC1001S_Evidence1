@@ -11,7 +11,7 @@ Exercises
 """
 import turtle
 import freegames
-importa random
+import random
 from random import choice
 from turtle import *
 from freegames import floor, vector
