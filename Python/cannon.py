@@ -24,7 +24,7 @@ def tap(x, y):
         ball.x = -199
         ball.y = -199
         speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.y = (y + 200) / 18 #varied the effect of gravity
 
 def inside(xy):
     "Return True if xy within screen."
