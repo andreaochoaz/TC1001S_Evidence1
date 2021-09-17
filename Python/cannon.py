@@ -18,13 +18,14 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
+
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 18 #varied the effect of gravity
+        speed.x = (x + 200) / 18
+        speed.y = (y + 200) / 18 #change speed of ball by dividing both components by 18 instead of 25
 
 def inside(xy):
     "Return True if xy within screen."
@@ -55,10 +56,11 @@ def move():
     # Move the existing targets
     for target in targets:
         target.x -= 0.5
+        target.y -= 0.25 #applied gravity to the targets
 
     # Move the cannon shot
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.55 #varied effect of gravity 
         ball.move(speed)
 
     # Make a copy of the existing target list before redrawing
@@ -66,10 +68,11 @@ def move():
     targets.clear()
 
     # Detect if the bullet hits a target
-    targethits = 0
     for target in dupe:
+        targethits = 0
         if abs(target - ball) > 13:
             targets.append(target)
+            #count how many targets were hit 
             targethits = targethits + 1
 
     draw()
@@ -78,6 +81,7 @@ def move():
     for target in targets:
         if not inside(target):
             #targets.remove(target)
+	    #display how many targets were hit
             turtle.write(f"You hit: {targethits} targets", move=False, align="left", font=("Arial", 8, "normal"))
             print(f"You hit: {targethits} targets!")
             return
