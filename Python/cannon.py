@@ -9,6 +9,7 @@ Exercises
 
 """
 
+import turtle
 from random import randrange
 from turtle import *
 from freegames import vector
@@ -23,7 +24,7 @@ def tap(x, y):
         ball.x = -199
         ball.y = -199
         speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.y = (y + 200) / 18 #varied the effect of gravity
 
 def inside(xy):
     "Return True if xy within screen."
@@ -65,9 +66,11 @@ def move():
     targets.clear()
 
     # Detect if the bullet hits a target
+    targethits = 0
     for target in dupe:
         if abs(target - ball) > 13:
             targets.append(target)
+            targethits = targethits + 1
 
     draw()
 
@@ -75,6 +78,8 @@ def move():
     for target in targets:
         if not inside(target):
             #targets.remove(target)
+            turtle.write(f"You hit: {targethits} targets", move=False, align="left", font=("Arial", 8, "normal"))
+            print(f"You hit: {targethits} targets!")
             return
 
     ontimer(move, 50)
