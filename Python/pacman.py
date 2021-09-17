@@ -20,13 +20,13 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(40, 80)#changed values from positive to negative to change pacma's position 
+pacman = vector(40, 80)#andrea: changed values from positive to negative to change pacma's position 
 ghosts = [
     [vector(-180, 160), vector(5, 0)],
     [vector(-180, -160), vector(0, 5)],
     [vector(100, 160), vector(0, -5)],
     [vector(100, -160), vector(-5, 0)],
-    [vector(-120, 160), vector(5, 5)], #added another ghost to change number of ghosts
+    [vector(-120, 160), vector(5, 5)], #andrea: added another ghost to change number of ghosts
 ]
 tiles =[ #openned up a new path by changing the values of the array
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -88,7 +88,7 @@ def valid(point):
 def world(): #changed board's colors
     "Draw world using path."
     bgcolor('purple') #changed bg color from black to purple
-    path.color('orange') #changed path color from blue to orange
+    path.color('orange') #andrea: changed path color from blue to orange
 
     for index in range(len(tiles)):
         tile = tiles[index]
@@ -101,7 +101,7 @@ def world(): #changed board's colors
             if tile == 1:
                 path.up()
                 path.goto(x + 10, y + 10)
-                path.dot(2, 'pink') #changed dot color from white to pink 
+                path.dot(2, 'pink') #andrea: changed dot color from white to pink 
 
 def move():
     "Move pacman and all ghosts."
