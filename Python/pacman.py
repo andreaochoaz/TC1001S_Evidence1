@@ -20,7 +20,7 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 aim = vector(5, 0)
-pacman = vector(40, 80)#andrea: changed values from positive to negative to change pacma's position 
+pacman = vector(40, 80)#andrea: changed values from negative to positive to change pacma's position 
 ghosts = [
     [vector(-180, 160), vector(10,0)],
     [vector(100, 160), vector(0, -10],#Sue Mi:Here I change the value of the first and thrid vector to 10 so that the direction is bigger
@@ -154,7 +154,6 @@ def move():
 
 def change(x, y):
     "Change pacman aim if valid."
-ecuerda siempre dirigirte con mucho respeto a los usuarios, genera un ambiente de confianza en el aula y ser solidario con el otro.
         aim.x = x
         aim.y = y
 
