@@ -25,7 +25,7 @@ def tap(x, y):
         ball.x = -199
         ball.y = -199
         speed.x = (x + 200) / 18
-        speed.y = (y + 200) / 18 #change speed of ball by dividing both components by 18 instead of 25
+        speed.y = (y + 200) / 18 #andrea: change speed of ball by dividing both components by 18 instead of 25
 
 def inside(xy):
     "Return True if xy within screen."
@@ -56,11 +56,11 @@ def move():
     # Move the existing targets
     for target in targets:
         target.x -= 0.5
-        target.y -= 0.25 #applied gravity to the targets
+        target.y -= 0.25 #andrea:applied gravity to the targets
 
     # Move the cannon shot
     if inside(ball):
-        speed.y -= 0.55 #varied effect of gravity 
+        speed.y -= 0.55 #andrea:varied effect of gravity 
         ball.move(speed)
 
     # Make a copy of the existing target list before redrawing
@@ -81,7 +81,7 @@ def move():
     for target in targets:
         if not inside(target):
             #targets.remove(target)
-	    #display how many targets were hit
+	    #andrea: display how many targets were hit
             turtle.write(f"You hit: {targethits} targets", move=False, align="left", font=("Arial", 8, "normal"))
             print(f"You hit: {targethits} targets!")
             return
