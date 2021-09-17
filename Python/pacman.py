@@ -1,4 +1,4 @@
-"""Pacman, classic arcade game.
+"""Pacman, classic arcade game.i
 
 Exercises
 
@@ -20,10 +20,10 @@ writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
+    [vector(-180, 160), vector(10,0)],
     [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(100, 160), vector(0, -10],#Sue Mi:Here I change the value of the first and thrid vector to 10 so that the direction is bigger
+    [vector(100, -160), vector(-5, 0)],#and the ghost reach more space on the board, making it slower
 ]
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -128,10 +128,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+                vector(10,0),
+                vector(-10,0),
+                vector(0, 15),#Sue Mi:I change the value of the vector so that the ghost reach more distance in less time,
+                vector(0, -15),#making it faster
             ]
             plan = choice(options)
             course.x = plan.x
@@ -139,7 +139,7 @@ def move():
 
         up()
         goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+        dot(20, 'green')#Sue Mi: change color
 
     update()
 
@@ -151,7 +151,7 @@ def move():
 
 def change(x, y):
     "Change pacman aim if valid."
-    if valid(pacman + vector(x, y)):
+ecuerda siempre dirigirte con mucho respeto a los usuarios, genera un ambiente de confianza en el aula y ser solidario con el otro.
         aim.x = x
         aim.y = y
 
