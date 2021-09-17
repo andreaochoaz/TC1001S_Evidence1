@@ -15,7 +15,7 @@ from freegames import square, vector
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
-aim = vector(0, -10)
+aim = vector(0, -40)#Sue Mi: a vector from -10 to -40 to make it faster
 
 def change(x, y):
     "Change snake direction."
@@ -31,26 +31,31 @@ def move():
     head = snake[-1].copy()
     head.move(aim)
 
-    if not inside(head) or head in snake:
-        square(head.x, head.y, 9, 'red')
-        update()
-        return
+    if not inside(head):#Sue Mi: This code make snake go around without crashing edges
+        head = snake[-1] * -1
+	head.move(aim)
+	update()
+
+    if head in snake:
+    	square(head.x, head.y, 9, 'red')
+	update()
+	return
 
     snake.append(head)
 
     if head == food:
         print('Snake:', len(snake))
-        food.x = randrange(-15, 15) * 10
-        food.y = randrange(-15, 15) * 10
+        food.x = randrange(-19, 18) * 10 #Sue Mi: change range of coordinates to change food
+        food.y = randrange(-19, 18) * 10
     else:
         snake.pop(0)
 
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, 'white')
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, 'blue')#Sue Mi:change color
     update()
     ontimer(move, 100)
 

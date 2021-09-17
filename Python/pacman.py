@@ -1,4 +1,4 @@
-"""Pacman, classic arcade game.
+"""Pacman, classic arcade game.i
 
 Exercises
 
@@ -22,13 +22,13 @@ writer = Turtle(visible=False)
 aim = vector(5, 0)
 pacman = vector(40, 80)#andrea: changed values from positive to negative to change pacma's position 
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
+    [vector(-180, 160), vector(10,0)],
+    [vector(100, 160), vector(0, -10],#Sue Mi:Here I change the value of the first and thrid vector to 10 so that the direction is bigger
+    [vector(100, -160), vector(-5, 0)],#and the ghost reach more space on the board, making it slower
     [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
     [vector(-120, 160), vector(5, 5)], #andrea: added another ghost to change number of ghosts
 ]
-tiles =[ #openned up a new path by changing the values of the array
+tiles =[ #andrea: openned up a new path by changing the values of the array
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
     0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0,
@@ -49,7 +49,7 @@ tiles =[ #openned up a new path by changing the values of the array
     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-] #changed values in tiles array and added one column to change board. 
+] #andrea: changed values in tiles array and added one column to change board. 
 
 def square(x, y):
     "Draw square using path at (x, y)."
@@ -85,9 +85,9 @@ def valid(point):
 
     return point.x % 20 == 0 or point.y % 20 == 0
 
-def world(): #changed board's colors
+def world(): #andrea: changed board's colors
     "Draw world using path."
-    bgcolor('purple') #changed bg color from black to purple
+    bgcolor('purple') #andrea: changed bg color from black to purple
     path.color('orange') #andrea: changed path color from blue to orange
 
     for index in range(len(tiles)):
@@ -131,10 +131,10 @@ def move():
             point.move(course)
         else:
             options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
+                vector(10,0),
+                vector(-10,0),
+                vector(0, 15),#Sue Mi:I change the value of the vector so that the ghost reach more distance in less time,
+                vector(0, -15),#Sue Mi: making it faster
             ]
             plan = choice(options)
             course.x = plan.x
@@ -142,7 +142,7 @@ def move():
 
         up()
         goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+        dot(20, 'green')#Sue Mi: change color
 
     update()
 
@@ -154,7 +154,7 @@ def move():
 
 def change(x, y):
     "Change pacman aim if valid."
-    if valid(pacman + vector(x, y)):
+ecuerda siempre dirigirte con mucho respeto a los usuarios, genera un ambiente de confianza en el aula y ser solidario con el otro.
         aim.x = x
         aim.y = y
 
